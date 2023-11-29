@@ -18,14 +18,13 @@ class CardWidget extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
           gradient: const LinearGradient(
-              begin: Alignment.centerLeft,
-              end: Alignment.centerRight,
-              colors: [
-                Colors.lightBlueAccent,
-                Colors.lightBlue,
-                Colors.blue,
-                Colors.blueAccent,
-              ]),
+            colors: <Color>[
+              Colors.lightBlueAccent,
+              Colors.lightBlue,
+              Colors.blue,
+              Colors.blueAccent,
+            ],
+          ),
         ),
         child: Center(
           child: Text(

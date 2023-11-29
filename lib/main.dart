@@ -1,6 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:tema3_atelier_digital/widgets/card_widget.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/material.dart';
+
+import 'widgets/card_widget.dart';
 
 void main() {
   runApp(const MyApp());
@@ -31,9 +32,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final audioPlayer = AudioPlayer();
+  final AudioPlayer audioPlayer = AudioPlayer();
 
-  List<String> names = [
+  List<String> names = <String>[
     'Salut',
     'Salut (germana)',
     'ma numesc',
@@ -59,17 +60,19 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       body: GridView.builder(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           mainAxisSpacing: 20,
           crossAxisSpacing: 20,
         ),
         itemCount: names.length,
-        itemBuilder: (_, index) {
+        itemBuilder: (_, int index) {
           return CardWidget(
             toggleOnPressed: () async {
-              await audioPlayer.play(AssetSource('0${index + 1}.mp3'));
+              await audioPlayer.play(
+                AssetSource('0${index + 1}.mp3'),
+              );
             },
             text: names[index],
           );
